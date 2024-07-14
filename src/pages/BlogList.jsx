@@ -1,12 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../Context/UserContext";
 
 export default function BlogList() {
   const [posts, setPosts] = useState([]);
+  const [user, _] = useContext(UserContext);
   const navigate = useNavigate();
+
+  const date = new Date(Date.now());
 
   useEffect(() => {
     axios
@@ -21,8 +25,8 @@ export default function BlogList() {
     <>
       <div className="m-8">
         <div className="flex flex-col">
-          <div className="font-bold text-xl">Welcome Username,</div>
-          <div className="font-light text-sm">Sunday 14 July, 2024</div>
+          <div className="font-bold text-xl">Welcome {user},</div>
+          <div className="font-light text-sm">{date.toDateString()}</div>
           <div className="my-6 font-bold text-2xl">Recent Blogs</div>
           <div className="my-4 flex flex-col gap-9">
             {posts.map((post, i) => {

@@ -12,12 +12,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* {user ? (
+        {user ? (
+          <>
+            <Route path="/" element={<BlogList />} />
+            <Route path="/blog/:id" element={<Blog />} />
+          </>
         ) : (
-        )} */}
-        <Route path="/" element={<Login />} />
-        <Route path="/blog-list" element={<BlogList />} />
-        <Route path="/blog/:id" element={<Blog />} />
+
+          <Route path="/" element={<Login />} />
+        )}
       </Routes>
     </BrowserRouter>
   );
