@@ -32,7 +32,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row my-10">
         <div className="flex flex-col mx-auto">
           <div className="login-header flex flex-row items-center px-8">
             <div className="long-header-text flex flex-col gap-5">
